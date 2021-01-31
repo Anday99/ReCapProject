@@ -91,18 +91,12 @@ namespace ConsoleUI
                         break;
                     case 6:
                         Console.WriteLine("En pahalı arabanın bilgileri\n----------------------------------------");
-                        foreach (var car in carManager.GetByMostExpensive())
-                        {
-                            Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", car.DailyPrice, car.ModelYear, car.Description);
-                        }
+                        Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", carManager.GetByMostExpensive().DailyPrice, carManager.GetByMostExpensive().ModelYear, carManager.GetByMostExpensive().Description);
                         Console.WriteLine("----------------------------------------");
                         break;
                     case 7:
                         Console.WriteLine("En ucuz arabanın bilgileri\n----------------------------------------");
-                        foreach (var car in carManager.GetByMostCheap())
-                        {
-                            Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", car.DailyPrice, car.ModelYear, car.Description);
-                        }
+                        Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", carManager.GetByMostCheap().DailyPrice, carManager.GetByMostCheap().ModelYear, carManager.GetByMostCheap().Description);
                         Console.WriteLine("----------------------------------------");
                         break;
                     case 8:

@@ -13,8 +13,8 @@ namespace Business.Abstract
         void Update(Car car);
         List<Car> GetByBrandId(int brandId);
         List<Car> GetByModelYear();
-        List<Car> GetByMostExpensive();
-        List<Car> GetByMostCheap();
+        Car GetByMostExpensive();
+        Car GetByMostCheap();
         List<Car> GetByPrice();
     }
 }

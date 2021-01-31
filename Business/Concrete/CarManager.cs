@@ -39,12 +39,12 @@ namespace Business.Concrete
             return _carDal.GetByModelYear();
         }
 
-        public List<Car> GetByMostCheap()
+        public Car GetByMostCheap()
         {
             return _carDal.GetMostCheap();
         }
 
-        public List<Car> GetByMostExpensive()
+        public Car GetByMostExpensive()
         {
             return _carDal.GetMostExpensive();
         }

@@ -54,14 +54,14 @@ namespace DataAccess.Concrete.InMemory
             return _cars.OrderByDescending(c => c.DailyPrice).ToList();
         }
 
-        public List<Car> GetMostCheap()
+        public Car GetMostCheap()
         {
-            return _cars.Where(c => c.DailyPrice == _cars.Min(car => car.DailyPrice)).ToList();
+            return _cars.FirstOrDefault(c => c.DailyPrice == _cars.Min(car => car.DailyPrice));
         }
 
-        public List<Car> GetMostExpensive()
+        public Car GetMostExpensive()
         {
-            return _cars.Where(c => c.DailyPrice == _cars.Max(car => car.DailyPrice)).ToList();
+            return _cars.FirstOrDefault(c => c.DailyPrice == _cars.Max(car => car.DailyPrice));
         }
 
         public void Update(Car car)
