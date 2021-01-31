@@ -36,48 +36,21 @@ namespace ConsoleUI
                 Console.WriteLine("********************************************************\n");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
+                int a = 1;
 
                 switch (choice)
                 {
                     case 1:
-                        int a = 1;
-                        Console.WriteLine("A Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                        foreach (var car in carManager.GetByBrandId(1))
-                        {
-                            Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                            a++;
-                        }
-                        Console.WriteLine("----------------------------------------");
+                        GetByBrandId(carManager, 1);
                         break;
                     case 2:
-                        a = 1;
-                        Console.WriteLine("B Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                        foreach (var car in carManager.GetByBrandId(2))
-                        {
-                            Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                            a++;
-                        }
-                        Console.WriteLine("----------------------------------------");
+                        GetByBrandId(carManager, 2);
                         break;
                     case 3:
-                        a = 1;
-                        Console.WriteLine("C Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                        foreach (var car in carManager.GetByBrandId(3))
-                        {
-                            Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                            a++;
-                        }
-                        Console.WriteLine("----------------------------------------");
+                        GetByBrandId(carManager, 3);
                         break;
                     case 4:
-                        a = 1;
-                        Console.WriteLine("D Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                        foreach (var car in carManager.GetByBrandId(4))
-                        {
-                            Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                            a++;
-                        }
-                        Console.WriteLine("----------------------------------------");
+                        GetByBrandId(carManager, 4);
                         break;
                     case 5:
                         a = 1;
@@ -117,6 +90,18 @@ namespace ConsoleUI
                         break;
                 }
             }
+        }
+
+        private static void GetByBrandId(CarManager carManager,int brandId)
+        {
+            int a = 1;
+            Console.WriteLine("A Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
+            foreach (var car in carManager.GetByBrandId(brandId))
+            {
+                Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
+                a++;
+            }
+            Console.WriteLine("----------------------------------------");
         }
     }
 }
