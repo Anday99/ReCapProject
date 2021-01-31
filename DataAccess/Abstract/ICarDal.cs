@@ -14,5 +14,7 @@ namespace DataAccess.Abstract
         List<Car> GetAll();
         List<Car> GetByModelYear();
         List<Car> GetMostExpensive();
+        List<Car> GetMostCheap();
+        List<Car> GetByPrice();
     }   
 }

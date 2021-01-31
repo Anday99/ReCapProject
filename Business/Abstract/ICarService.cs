@@ -14,5 +14,7 @@ namespace Business.Abstract
         List<Car> GetByBrandId(int brandId);
         List<Car> GetByModelYear();
         List<Car> GetByMostExpensive();
+        List<Car> GetByMostCheap();
+        List<Car> GetByPrice();
     }
 }

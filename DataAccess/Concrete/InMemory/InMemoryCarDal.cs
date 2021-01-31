@@ -49,6 +49,16 @@ namespace DataAccess.Concrete.InMemory
             return _cars.OrderByDescending(c=>c.ModelYear).ToList();
         }
 
+        public List<Car> GetByPrice()
+        {
+            return _cars.OrderByDescending(c => c.DailyPrice).ToList();
+        }
+
+        public List<Car> GetMostCheap()
+        {
+            return _cars.Where(c => c.DailyPrice == _cars.Min(car => car.DailyPrice)).ToList();
+        }
+
         public List<Car> GetMostExpensive()
         {
             return _cars.Where(c => c.DailyPrice == _cars.Max(car => car.DailyPrice)).ToList();

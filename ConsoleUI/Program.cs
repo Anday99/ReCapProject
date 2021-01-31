@@ -27,72 +27,106 @@ namespace ConsoleUI
                 i++;
             }
             Console.WriteLine("-------------------------------");
-            Console.WriteLine("1-A Segmenti araçlar\n2-B Segmenti Araçlar\n3-C Segmenti Araçlar\n4-D Segmenti Araçlar\n5-Araçları Çıkış Yıllarına Göre Sıralama\n6-En Pahalı Aracın Bilgileri");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            switch (choice)
+            
+           
+            while (true)
             {
-                case 1:
-                    int a = 1;
-                    Console.WriteLine("A Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                    foreach (var car in carManager.GetByBrandId(1))
+                Console.WriteLine("**************************MENU**************************\n");
+                Console.WriteLine("1-A Segmenti araçlar\n2-B Segmenti Araçlar\n3-C Segmenti Araçlar\n4-D Segmenti Araçlar\n5-Araçları Çıkış Yıllarına Göre Sıralama\n6-En Pahalı Aracın Bilgileri\n7-En Ucuz Aracın Bilgileri\n8-Araçları Fiyatlarına Göre Listeleme\n");
+                Console.WriteLine("********************************************************\n");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                if (choice>0 && choice<9)
+                {
+                    switch (choice)
                     {
-                        Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}",a,car.ModelYear,car.DailyPrice);
-                        a++;
+                        case 1:
+                            int a = 1;
+                            Console.WriteLine("A Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
+                            foreach (var car in carManager.GetByBrandId(1))
+                            {
+                                Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
+                                a++;
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 2:
+                            a = 1;
+                            Console.WriteLine("B Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
+                            foreach (var car in carManager.GetByBrandId(2))
+                            {
+                                Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
+                                a++;
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 3:
+                            a = 1;
+                            Console.WriteLine("C Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
+                            foreach (var car in carManager.GetByBrandId(3))
+                            {
+                                Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
+                                a++;
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 4:
+                            a = 1;
+                            Console.WriteLine("D Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
+                            foreach (var car in carManager.GetByBrandId(4))
+                            {
+                                Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
+                                a++;
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 5:
+                            a = 1;
+                            Console.WriteLine("Çıkış yıllarına göre sıralama\n----------------------------------------");
+                            foreach (var car in carManager.GetByModelYear())
+                            {
+                                Console.WriteLine("{0}.Fiyat:{1} Çıkış Yılı:{2}\n", a, car.DailyPrice, car.ModelYear);
+                                a++;
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 6:
+                            Console.WriteLine("En pahalı arabanın bilgileri\n----------------------------------------");
+                            foreach (var car in carManager.GetByMostExpensive())
+                            {
+                                Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", car.DailyPrice, car.ModelYear, car.Description);
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 7:
+                            Console.WriteLine("En ucuz arabanın bilgileri\n----------------------------------------");
+                            foreach (var car in carManager.GetByMostCheap())
+                            {
+                                Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", car.DailyPrice, car.ModelYear, car.Description);
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        case 8:
+                            a = 1;
+                            Console.WriteLine("Fiyatlarına göre Sıralama\n----------------------------------------");
+                            foreach (var car in carManager.GetByPrice())
+                            {
+                                Console.WriteLine("{0}.Fiyat:{1} Çıkış Yılı:{2}\n", a, car.DailyPrice, car.ModelYear);
+                                a++;
+                            }
+                            Console.WriteLine("----------------------------------------");
+                            break;
+                        default:
+                            break;
                     }
-                    Console.WriteLine("----------------------------------------");
+                }
+                else
+                {
+                    Console.WriteLine("Programdan çıkış yaptınız.\nİyi günler...");
                     break;
-                case 2:
-                    a = 1;
-                    Console.WriteLine("B Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                    foreach (var car in carManager.GetByBrandId(2))
-                    {
-                        Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                        a++;
-                    }
-                    Console.WriteLine("----------------------------------------");
-                    break;
-                case 3:
-                    a = 1;
-                    Console.WriteLine("C Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                    foreach (var car in carManager.GetByBrandId(3))
-                    {
-                        Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                        a++;
-                    }
-                    Console.WriteLine("----------------------------------------");
-                    break;
-                case 4:
-                    a = 1;
-                    Console.WriteLine("D Segmenti Araçlar Model ve Fiyat Bilgileri\n----------------------------------------");
-                    foreach (var car in carManager.GetByBrandId(4))
-                    {
-                        Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
-                        a++;
-                    }
-                    Console.WriteLine("----------------------------------------");
-                    break;
-                case 5:
-                    a = 1;
-                    Console.WriteLine("Çıkış yıllarına göre sıralama\n----------------------------------------");
-                    foreach (var car in carManager.GetByModelYear())
-                    {
-                        Console.WriteLine("{0}.Fiyat:{1} Çıkış Yılı:{2}\n",a,car.DailyPrice,car.ModelYear);
-                        a++;
-                    }
-                    Console.WriteLine("----------------------------------------");
-                    break;
-                case 6:
-                    Console.WriteLine("En pahalı arabanın bilgileri\n----------------------------------------");
-                    foreach (var car in carManager.GetByMostExpensive())
-                    {
-                        Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", car.DailyPrice, car.ModelYear,car.Description);
-                    }
-                    Console.WriteLine("----------------------------------------");
-                    break;
-                default:
-                    break;
+                }
             }
+            
 
             
         }
