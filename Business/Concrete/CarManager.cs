@@ -34,6 +34,11 @@ namespace Business.Concrete
             return _carDal.GetByBrandId(brandId);
         }
 
+        public List<Car> GetByModelYear()
+        {
+            return _carDal.GetByModelYear();
+        }
+
         public void Update(Car car)
         {
             _carDal.Update(car);

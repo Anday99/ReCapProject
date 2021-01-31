@@ -44,6 +44,11 @@ namespace DataAccess.Concrete.InMemory
             return _cars.Where(c => c.BrandId == brandId).ToList();
         }
 
+        public List<Car> GetByModelYear()
+        {
+            return _cars.OrderByDescending(c=>c.ModelYear).ToList();
+        }
+
         public void Update(Car car)
         {
             Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);

@@ -27,7 +27,7 @@ namespace ConsoleUI
                 i++;
             }
             Console.WriteLine("-------------------------------");
-            Console.WriteLine("1-A Segmenti araçlar\n2-B Segmenti Araçlar\n3-C Segmenti Araçlar\n4-D Segmenti Araçlar");
+            Console.WriteLine("1-A Segmenti araçlar\n2-B Segmenti Araçlar\n3-C Segmenti Araçlar\n4-D Segmenti Araçlar\n5-Araçları Çıkış Yıllarına Göre Sıralama");
             int choice = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             switch (choice)
@@ -68,6 +68,16 @@ namespace ConsoleUI
                     foreach (var car in carManager.GetByBrandId(4))
                     {
                         Console.WriteLine("{0}. Model:{1}\n   Fiyat:{2}", a, car.ModelYear, car.DailyPrice);
+                        a++;
+                    }
+                    Console.WriteLine("----------------------------------------");
+                    break;
+                case 5:
+                    a = 1;
+                    Console.WriteLine("Çıkış yıllarına göre sıralama\n----------------------------------------");
+                    foreach (var car in carManager.GetByModelYear())
+                    {
+                        Console.WriteLine("{0}.Fiyat:{1} Çıkış Yılı:{2}\n",a,car.DailyPrice,car.ModelYear);
                         a++;
                     }
                     Console.WriteLine("----------------------------------------");
