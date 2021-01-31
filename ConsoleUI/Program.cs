@@ -18,7 +18,7 @@ namespace ConsoleUI
                 i++;
             }
             Console.WriteLine("-------------------------------");
-            carManager.Add(new Car {Id=8,BrandId=2,ColorId=3,DailyPrice=355000,Description="Bastın mı gaza gider mi gider",ModelYear=2021});
+            carManager.Add(new Car {Id=8,BrandId=2,ColorId=3,DailyPrice=145000,Description="Bastın mı gaza gider mi gider",ModelYear=2021});
             Console.WriteLine("-------------------------------");
             i = 1;
             foreach (var car in carManager.GetAll())
@@ -27,7 +27,7 @@ namespace ConsoleUI
                 i++;
             }
             Console.WriteLine("-------------------------------");
-            Console.WriteLine("1-A Segmenti araçlar\n2-B Segmenti Araçlar\n3-C Segmenti Araçlar\n4-D Segmenti Araçlar\n5-Araçları Çıkış Yıllarına Göre Sıralama");
+            Console.WriteLine("1-A Segmenti araçlar\n2-B Segmenti Araçlar\n3-C Segmenti Araçlar\n4-D Segmenti Araçlar\n5-Araçları Çıkış Yıllarına Göre Sıralama\n6-En Pahalı Aracın Bilgileri");
             int choice = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             switch (choice)
@@ -79,6 +79,14 @@ namespace ConsoleUI
                     {
                         Console.WriteLine("{0}.Fiyat:{1} Çıkış Yılı:{2}\n",a,car.DailyPrice,car.ModelYear);
                         a++;
+                    }
+                    Console.WriteLine("----------------------------------------");
+                    break;
+                case 6:
+                    Console.WriteLine("En pahalı arabanın bilgileri\n----------------------------------------");
+                    foreach (var car in carManager.GetByMostExpensive())
+                    {
+                        Console.WriteLine("Fiyat:{0}\nÇıkış Yılı:{1}\nAçıklaması:{2}", car.DailyPrice, car.ModelYear,car.Description);
                     }
                     Console.WriteLine("----------------------------------------");
                     break;

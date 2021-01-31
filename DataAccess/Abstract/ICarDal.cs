@@ -13,5 +13,6 @@ namespace DataAccess.Abstract
         void Update(Car car);
         List<Car> GetAll();
         List<Car> GetByModelYear();
+        List<Car> GetMostExpensive();
     }   
 }
