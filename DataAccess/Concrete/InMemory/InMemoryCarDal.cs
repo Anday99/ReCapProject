@@ -24,6 +24,7 @@ namespace DataAccess.Concrete.InMemory
         }
         public void Add(Car car)
         {
+            car.Id = _cars.Last().Id + 1;
             _cars.Add(car);
             Console.WriteLine("{0} model araba {1} TL fiyatı ile eklendi.",car.ModelYear,car.DailyPrice);
         }
@@ -32,6 +33,7 @@ namespace DataAccess.Concrete.InMemory
         {
             Car carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
             _cars.Remove(carToDelete);
+            Console.WriteLine("{0} model araba {1} TL fiyatı ile silindi.", carToDelete.ModelYear, carToDelete.DailyPrice);
         }
 
         public List<Car> GetAll()
@@ -72,6 +74,9 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
+
+            Console.WriteLine("Güncellenen araç bilgileri\n---------------------------");
+            Console.WriteLine("{0}. {1} model {2} TL-->Açıklaması:{3}\n", carToUpdate.Id, carToUpdate.ModelYear, carToUpdate.DailyPrice, carToUpdate.Description);
         }
     }
 }
