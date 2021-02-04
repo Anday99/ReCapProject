@@ -16,7 +16,14 @@ namespace Business.Concrete
         }
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.Description.Length < 2 || car.DailyPrice <= 0)
+            {
+                throw new Exception("Arabanın Açıklamasını ve Ücretini Kontrol Ediniz");
+            }
+            else
+            {
+                _carDal.Add(car);
+            }
         }
 
         public void Delete(Car car)
@@ -29,29 +36,14 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetByBrandId(int brandId)
+        public List<Car> GetCarsByBrandId(int brandId)
         {
-            return _carDal.GetByBrandId(brandId);
+            return _carDal.GetAll(c => c.BrandId == brandId);
         }
 
-        public List<Car> GetByModelYear()
+        public List<Car> GetCarsByColorId(int colorId)
         {
-            return _carDal.GetByModelYear();
-        }
-
-        public Car GetByMostCheap()
-        {
-            return _carDal.GetMostCheap();
-        }
-
-        public Car GetByMostExpensive()
-        {
-            return _carDal.GetMostExpensive();
-        }
-
-        public List<Car> GetByPrice()
-        {
-            return _carDal.GetByPrice();
+            return _carDal.GetAll(c => c.ColorId == colorId);
         }
 
         public void Update(Car car)
