@@ -99,7 +99,7 @@ namespace ConsoleUI
         {
             ListBrands(brandManager);
             Console.WriteLine("------------------------------------------------------");
-            Console.Write("Listeden Silmek İstediğiniz Markanın Numarasını Giriniz:");
+            Console.Write("Listeden Güncellemek İstediğiniz Markanın Numarasını Giriniz:");
             int brandId = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.Write("Aracın Markasını Giriniz: ");
