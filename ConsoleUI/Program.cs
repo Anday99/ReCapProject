@@ -14,7 +14,6 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            CarDtoManager carDtoManager = new CarDtoManager(new InMemoryCarDtoDal());
 
             bool loop = true;
             while (loop)
@@ -166,9 +165,10 @@ namespace ConsoleUI
 
         private static void ListCars(CarManager carManager)
         {
-            foreach (var car in carManager.GetAll())
+            Console.WriteLine("ID   |    MARKA      |   RENK   |       AÇIKLAMA         \n-------------------------------------------------------");
+            foreach (var car in carManager.GetCarDetails())
             {
-                Console.WriteLine($"{car.Id}. Marka: {car.BrandId.ToString().PadRight(10,' ')}     Fiyat: {car.DailyPrice.ToString().PadRight(10, ' ')}     Açıklama: {car.Description}");
+                Console.WriteLine($"{car.Id.ToString().PadRight(5,' ')}|{car.BrandName.PadRight(15,' ')}|{car.ColorName.PadRight(10,' ')}|{car.Description.PadRight(20,' ')}");
             }
         }
 
