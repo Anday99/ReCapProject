@@ -80,7 +80,7 @@ namespace ConsoleUI
 
         private static void ListColors(ColorManager colorManager)
         {
-            foreach (var color in colorManager.GetAll())
+            foreach (var color in colorManager.GetAll().Data)
             {
                 Console.WriteLine($"{color.ColorId}. {color.ColorName}");
             }
@@ -126,7 +126,7 @@ namespace ConsoleUI
 
         private static void ListBrands(BrandManager brandManager)
         {
-            foreach (var brand in brandManager.GetAll())
+            foreach (var brand in brandManager.GetAll().Data)
             {
                 Console.WriteLine($"{brand.BrandId}. {brand.BrandName}");
             }
@@ -166,7 +166,7 @@ namespace ConsoleUI
         private static void ListCars(CarManager carManager)
         {
             Console.WriteLine("ID   |    MARKA      |   RENK   |       AÇIKLAMA         \n-------------------------------------------------------");
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine($"{car.Id.ToString().PadRight(5,' ')}|{car.BrandName.PadRight(15,' ')}|{car.ColorName.PadRight(10,' ')}|{car.Description.PadRight(20,' ')}");
             }
