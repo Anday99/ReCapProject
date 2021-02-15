@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -13,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapDatabaseContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             using (ReCapDatabaseContext context=new ReCapDatabaseContext())
             {
@@ -24,7 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
                              on car.BrandId equals brand.BrandId
                              select new CarDetailDto { Id = car.Id, BrandId = brand.BrandId, BrandName = brand.BrandName, ColorId = color.ColorId, ColorName = color.ColorName, DailyPrice = car.DailyPrice, Description = car.Description, ModelYear = car.ModelYear };
 
-                return result.ToList();
+                return new SuccessDataResult<List<CarDetailDto>>(result.ToList());
             }
         }
     }

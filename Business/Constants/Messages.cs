@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,5 +25,12 @@ namespace Business.Constants
         public static string ColorNameInvalid = "Renk ismi en az iki karakter olmalıdır";
         public static string ColorAdded = "Renk eklendi";
         public static string ColorUpdated = "Renk güncellendi";
+        public static string UserFirstNameInvalid = "User ismi en az iki karakter olmalıdır";
+        public static string UserAdded = "User eklendi";
+        public static string UserDeleted = "User silindi";
+        public static string UserUpdated = "User güncellendi";
+        public static string RentalAdded = "Kiralanma başarılı";
+        public static string CompanyNameInvalid = "Şirket ismi en az 2 karakter olmalıdır.";
+        public static string CustomerAdded = "Müşteri eklendi";
     }
 }
